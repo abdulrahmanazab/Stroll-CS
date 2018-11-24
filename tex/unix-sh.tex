@@ -1,0 +1,42 @@
+#!/bin/sh
+# Make a new CTF in the stroll root
+
+mkdir stroll/R
+cd /stroll/R
+
+#Set the general configuration for all tasks in the CTF
+
+echo 'R' > config/rt
+echo 'true' > config/wait
+echo 'M128' > config/req
+
+# Create task directories inside the CTF
+
+mkdir simmod %PSM.estimate %optim APL.KF.parallel Normalize
+
+#Set specific configuration for each task
+
+echo "simmod.R" > simmod/config/exec
+echo "exec=PSM.estimate.R;parents=simmod" > 
+%PSM.estimate/config/control
+echo "exec=optim.R;parents=PSM.estimate" >
+ %optim/config/control
+echo "exec=APL.KF.parallel.R;parents=optim;in=inp$(i);
+out=out$(i);subtasks=20" > APL.KF.parallel/config/control
+
+# Copy task files into task directories
+
+cp ~/simmod.R simmod
+cp ~/Normalize.R Normalize
+cp ~/PSM.estimate.R %PSM.estimate
+cp ~/optim.R %optim
+cp ~/APL.KF.parallel.R APL.KF.parallel
+
+# Submit the task
+
+echo "submit" > simmod/control
+
+# Wait until 'echo' command returns to collect the output
+
+cp Normalize/out.RData ~/
+

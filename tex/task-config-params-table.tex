@@ -1,0 +1,41 @@
+%!TEX root = ../main.tex
+
+\begin{scriptsize}
+\begin{table}[htbp]
+\caption{Task parameters (files in the \cmd{config} directory)}
+\label{tab:config}
+\centering
+\begin{tabular}{|c|p{6 cm}|} \hline 
+
+\textsc{Config} & \textsc{Description}\\ \hline\hline
+
+\textbf{exec} & Executable file name.\\ \hline
+
+\textbf{rt} & Runtime environment needed to run the executable, e.g.
+JVM, R, or CLR.\\ \hline
+
+\textbf{wait} & Value \textbf{true} causes the \cmd{submit} command to hold 
+until task termination. \\ \hline
+
+\textbf{subtasks} & Number of parallel subtasks to be executed for batch 
+tasks. \\ \hline
+
+\textbf{in} & Comma separated list of input files. For batch tasks, the input
+file names should include a zero based index, e.g. in1,in2,..,in20 for 20
+subtasks. \\ \hline
+
+\textbf{out} & Comma separated list of output files. \\ \hline
+
+\textbf{args} & Comma separated list of task arguments. \\ \hline
+
+\textbf{req} & Resource requirements, e.g. memory and load average. The
+format is a similar to Condor's ClassAd~\cite{condor-submit}, only more
+compact: \cmd{LA0.1 \&\& M512} corresponds to \cmd{LoadAvg<=0.1 \&\&
+Memory>=512}. \\ \hline
+
+\rowcolor{lightgray} \textbf{parents} & A comma separated list of the parent tasks. This configuration parameter is used for configuring parent-child relations in \textbf{composite} tasks.\\\hline
+
+\end{tabular}
+\end{table}
+\end{scriptsize}
+

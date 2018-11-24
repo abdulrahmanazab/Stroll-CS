@@ -1,0 +1,107 @@
+\documentclass[conference]{IEEEtran}
+\usepackage [table]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows,backgrounds,positioning,fit,calc,scopes,shadows}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{subfig}
+\usepackage{xspace}
+\usepackage[lined,ruled,commentsnumbered]{algorithm2e}
+\usepackage[noend]{algorithmic}
+%\usepackage{algorithm}
+\usepackage{comment}
+\usepackage{listings}
+\usepackage{amssymb,amsmath}
+\usepackage{multirow}
+\usepackage[font={footnotesize}]{caption}
+\usepackage{epstopdf}
+\usepackage{float}
+
+\newtheorem{theorem}{Theorem}
+
+\newcommand{\name}{\textsc{Stroll}\xspace}
+\newcommand{\user}{\textsc{user}\xspace}
+\newcommand{\fs}{filesystem\xspace}
+\newcommand{\Fs}{Filesystem\xspace}
+\newcommand{\secref}[1]{Section~\ref{#1}}
+\newcommand{\rc}{\texttt{read()}\xspace}
+\newcommand{\wc}{\texttt{write()}\xspace}
+\newcommand{\unicore}{Unicore\xspace}
+\newcommand{\ucc}{\texttt{ucc}\xspace}
+\newcommand{\broker}{broker}
+\newcommand{\td}{taskDir}
+\newcommand{\vp}{vPath}
+\newcommand{\rbuf}{rBuf}
+\newcommand{\wait}{wait}
+\newcommand{\block}{block}
+\newcommand{\tdcfg}{\td\mathrm{/}config}
+\newcommand{\vpcfg}{\vp\mathrm{/}config}
+\newcommand{\terminated}{\textsc{Terminated}\xspace}
+\newcommand{\waituntil}{\textbf{wait until}\xspace}
+
+\newcommand{\term}[1]{\textit{#1}}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\cmd}[1]{{\footnotesize\texttt{#1}}\xspace}
+\newcommand{\tabref}[1]{Table~\ref{#1}}
+\newcommand{\figref}[1]{Figure~\ref{#1}}
+
+%%Azab:Algorithm package
+
+
+\newcommand{\shlist}[4]{
+  \lstset{basicstyle=\ttfamily\scriptsize}
+  \lstset{language=#4}
+  \lstset{keepspaces=true}
+  \lstset{columns=fullflexible}
+  \lstset{numbers=none}
+  \lstset{aboveskip=-4pt}
+  \lstset{belowskip=0pt}
+  \lstinputlisting[frame=tb, float=ht, caption={#2}, label={#3}]{#1}
+}
+
+\begin{document}
+
+\title{
+\begin{Large}
+\textbf{\Fs Front-end for Seamless Job Management in Sensitive Data e-Infrastructures and Cloud Federation}
+\end{Large}
+}
+
+\author{\IEEEauthorblockN{Abdulrahman Azab\IEEEauthorrefmark{1},
+Hein Meling\IEEEauthorrefmark{2}, Eivind Hovig\IEEEauthorrefmark{3} and
+Antti Pursula\IEEEauthorrefmark{4}}
+\IEEEauthorblockA{\IEEEauthorrefmark{1}Department of Research Computing, University of Oslo, Norway\\
+\IEEEauthorrefmark{2}Department of Electrical Engineering and Computer Science, University of Stavanger, Norway\\
+\IEEEauthorrefmark{3}Department of Informatics, University of Oslo, Norway\\
+\IEEEauthorrefmark{4}CSC - IT Center for Science, Finland\\
+Email: \IEEEauthorrefmark{1}azab@usit.uio.no,
+\IEEEauthorrefmark{2}hein.meling@uis.no,
+\IEEEauthorrefmark{3}ehovig@ifi.uio.no,
+\IEEEauthorrefmark{4}antti.pursula@csc.fi}}
+
+
+\maketitle
+
+\input{tex/abstract}
+\input{tex/intro}
+\input{tex/stroll}
+\input{tex/tsd} 
+\input{tex/stroll-tsd}
+\input{tex/performance}
+\input{tex/stroll-tryggve} 
+\input{tex/conclusions}
+%\input{tex/bground}
+%\input{tex/related}
+%\input{tex/architecture2}
+%\input{tex/arch-new}
+%\input{tex/algo-cmd-handler2}
+%\input{tex/algo-broker2}
+%\input{tex/algo-driver2}
+%\input{tex/use-cases}
+%\input{tex/sample-codes}
+%\input{tex/evaluation}
+
+\bibliographystyle{IEEEtran}
+\bibliography{IEEEabrv,stroll}
+
+\end{document}
